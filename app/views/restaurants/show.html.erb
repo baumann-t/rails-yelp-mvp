@@ -1,5 +1,5 @@
 <%= link_to "HOME", restaurants_path, class: "btn btn-primary mx-3 mt-3" %>
-<div class="col-sm-6 m-3">
+<div class="col-sm-8 m-3">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title font-weight-bold"><strong><%= @restaurant.name %></strong></h5>
@@ -9,16 +9,24 @@
     </div>
   </div>
 </div>
-<div class="col-sm-6 m-3">
+<div class="col-sm-8 m-3">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title font-weight-bold"><strong><%= @title %></strong></h5>
       <% @restaurant.reviews.each do |rev| %>
         <li> <strong>Rating:</strong> <%=rev.rating%> - <strong>Review</strong>: <%=rev.content%></li>
       <% end %>
-      <%= link_to "ADD REVIEW", new_restaurant_review_path(@restaurant), class: "btn btn-primary mt-3" %>
     </div>
   </div>
 </div>
 
+<div class="col-sm-8 m-3 p-2 shadow-lg bg-white rounded text-left">
+  <h3 class=>Add a new review for <%=@restaurant.name%></h3>
+
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :rating %>
+    <%= f.input :content %>
+    <%= f.submit %>
+  <% end %>
+  </div>
 </div>

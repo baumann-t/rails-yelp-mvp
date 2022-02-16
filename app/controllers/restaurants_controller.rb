@@ -25,6 +25,7 @@ class RestaurantsController < ApplicationController
       else
         "All #{@restaurant.name} reviews:"
       end
+    @review = Review.new
   end
 
   private
