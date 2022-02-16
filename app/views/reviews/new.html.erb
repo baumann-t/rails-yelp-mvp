@@ -1,4 +1,4 @@
-<h1>Add a new review for <%=@restaurant.name%></h1>
+<h1 class="my-5 p-4 shadow-lg bg-white rounded text-left">Add a new review for <%=@restaurant.name%></h1>
 
 <%= simple_form_for [@restaurant, @review] do |f| %>
   <%= f.input :rating %>

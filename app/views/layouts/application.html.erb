@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-between">
+        <a class="navbar-brand p-3" href="/restaurants">FakeYELP</a>
+        <%= link_to "ADD A RESTAURANT", new_restaurant_path, class: "btn btn-primary m-2" %>
+
+    </nav>
     <%= yield %>
   </body>
 </html>

@@ -1,7 +1,11 @@
-<h1>ALL RESTAURANTS</h1>
+<div class="container">
+  <h1 class="my-5 p-4 shadow-lg bg-white rounded text-center" style="width: 500px;">ALL RESTAURANTS</h1>
 
-<ul>
-  <% @restaurants.each do |rest| %>
-    <li> <%= link_to rest.name, restaurant_path(rest) %></li>
-  <% end %>
-</ul>
+<% @restaurants.each_with_index do |rest| %>
+  <div class="card col-sm-6">
+    <div class="card-body d-flex justify-content-between">
+      <h5 class="card-text align-self-center m-0"><%= rest.name %></h5>
+      <%= link_to "View details", restaurant_path(rest), class: "btn btn-primary m-2" %>
+    </div>
+  </div>
+<% end %>

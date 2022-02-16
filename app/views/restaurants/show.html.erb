@@ -1,8 +1,24 @@
-<h1><%= @restaurant.name  %></h1>
-<%= link_to "HOME", restaurants_path %>
-<%= link_to "ADD REVIEW", new_restaurant_review_path(@restaurant) %>
+<%= link_to "HOME", restaurants_path, class: "btn btn-primary mx-3 mt-3" %>
+<div class="col-sm-6 m-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title font-weight-bold"><strong><%= @restaurant.name %></strong></h5>
+      <p class="card-text"><%= @restaurant.address %></p>
+      <p class="card-text"><%= @restaurant.phone_number %></p>
+      <p class="card-text"><%= @restaurant.category.capitalize %></p>
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 m-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title font-weight-bold"><strong><%= @title %></strong></h5>
+      <% @restaurant.reviews.each do |rev| %>
+        <li> <strong>Rating:</strong> <%=rev.rating%> - <strong>Review</strong>: <%=rev.content%></li>
+      <% end %>
+      <%= link_to "ADD REVIEW", new_restaurant_review_path(@restaurant), class: "btn btn-primary mt-3" %>
+    </div>
+  </div>
+</div>
 
-<h2>All <%= @restaurant.name  %> reviews: </h2>
-<% @restaurant.reviews.each do |rev| %>
-  <li> <strong>Rating:</strong> <%=rev.rating%> - <strong>Review</strong>: <%=rev.content%></li>
-<% end %>
+</div>
